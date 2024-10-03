@@ -1,0 +1,2 @@
+backend.js:2119 Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'Vue')
+    at initBackend (backend.js:2119:28)

@@ -1,0 +1,25 @@
+$break-points:(
+  pc:1200px,
+  ph:480px
+);
+@mixin respond-to($breakpoint) {
+  @if ($breakpoint==pc){
+    @if map-has-key($break-points, $breakpoint) {
+      @media (hover:hover) {
+        @content;
+      }
+    } @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Available breakpoints are: #{map-keys($break-points)}.";
+    }
+  }@else{
+    @if map-has-key($break-points, $breakpoint) {
+      @media (max-width: map-get($break-points, $breakpoint)) {
+        @content;
+      }
+    } @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Available breakpoints are: #{map-keys($break-points)}.";
+    }
+  }
+}
